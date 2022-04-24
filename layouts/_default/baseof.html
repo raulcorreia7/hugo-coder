@@ -91,6 +91,11 @@
       {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
     {{ end -}}
 
+    {{ if (.Params.mermaid) }}
+      <!-- MermaidJS support -->
+      <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    {{ end }}
+    
     {{ hugo.Generator }}
   </head>
 
