@@ -96,6 +96,10 @@
       <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     {{ end }}
     
+    {{ if .Params.asciinema }}
+      <link rel="stylesheet" type="text/css" href="{{ .Site.BaseURL }}css/asciinema-player.css" />
+    {{ end }}
+
     {{ hugo.Generator }}
   </head>
 
@@ -159,6 +163,9 @@
 
     {{ if and .Site.Params.googleTagManager .Site.Params.googleTagManager.id }}
       {{- partial "analytics/googletagmanager" . -}}
+    {{ end }}
+    {{ if .Params.asciinema }}
+        <script src="{{ .Site.BaseURL }}js/asciinema-player.js"></script>
     {{ end }}
   </body>
 
